@@ -17,20 +17,21 @@ function App() {
     searchClick();
   }, [])
 
+  async function searchClick() {
+		await fetch(
+			`https://api.weatherapi.com/v1/forecast.json?key=457b6477a5f3405482d01445221307&q=${location}&days=1&aqi=no&alerts=no`
+		)
+			.then((response) => response.json())
+			.then((data) => 
+      setLocateInfo({
+        name: data.location.name,
+        country: data.location.country,
+        status: data.current.condition.text,
 
- 
-
-  const searchClick = () => {fetch(`http://api.weatherapi.com/v1/forecast.json?key=457b6477a5f3405482d01445221307&q=${location}&days=1&aqi=no&alerts=no`)
-  .then(response => response.json())
-  .then((data) => setLocateInfo({
-    name: data.location.name,
-    country: data.location.country,
-    status: data.current.condition.text,
-
-    cel: {
-      temp : data.current.temp_c,
-      lowtemp: data.forecast.forecastday[0].day.mintemp_c,
-      hightemp: data.forecast.forecastday[0].day.maxtemp_c,
+        cel: {
+          temp : data.current.temp_c,
+          lowtemp: data.forecast.forecastday[0].day.mintemp_c,
+          hightemp: data.forecast.forecastday[0].day.maxtemp_c,
     }, 
 
 
