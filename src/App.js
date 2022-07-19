@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Clear from './Images/Clear.jpg'
 import Cloudy from './Images/Cloudy.jpg'
 import Overcast from './Images/Overcast.jpg'
@@ -37,12 +37,6 @@ const searchClicky = (e) => {
 }
 
 
-useEffect(() => {
-  searchClick();
-},
-  []);
-
-   
  
   
 
