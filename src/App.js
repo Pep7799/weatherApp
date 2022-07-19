@@ -13,9 +13,7 @@ function App() {
   const [location, setLocation] = React.useState("London");
   const [locateInfo, setLocateInfo] = React.useState({});
 
-  useEffect(() => {
-    searchClick();
-  }, [])
+ 
 
   async function searchClick() {
 		await fetch(
@@ -44,7 +42,9 @@ const searchClicky = (e) => {
 }
 
 
- 
+useEffect(() => {
+  searchClick();
+}, [])
   
 
  const dateSection = (d) => {
