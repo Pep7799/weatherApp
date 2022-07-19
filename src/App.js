@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Clear from './Images/Clear.jpg'
 import Cloudy from './Images/Cloudy.jpg'
 import Overcast from './Images/Overcast.jpg'
@@ -10,8 +10,13 @@ import Snow from './Images/Snow.jpg'
 
 
 function App() {
-  const [location, setLocation] = React.useState("");
+  const [location, setLocation] = React.useState("London");
   const [locateInfo, setLocateInfo] = React.useState({});
+
+  useEffect(() => {
+    searchClick();
+  }, [])
+
 
  
 
@@ -30,6 +35,7 @@ function App() {
 
 
   }));
+  setLocation("");
 }
 
 const searchClicky = (e) => {
@@ -72,7 +78,7 @@ const searchClicky = (e) => {
         <h1 className="text-3xl text-center ">{dateSection(new Date())}</h1>
         <div className="text-center mt-32">
       
-        <input placeholder = "Enter location" className="border-2 border-black" type = "text" value={location} onKeyPress = {searchClicky} onChange = {(e)=> setLocation(e.target.value)}/>
+        <input autoFocus placeholder = "Enter location" className="border-2 border-black" type = "text" value={location} onKeyPress = {searchClicky} onChange = {(e)=> setLocation(e.target.value)}/>
         <br/>
         <button className="bg-white text-black px-4 py-2 mt-2 hover:bg-black hover:text-white cursor-pointer" onClick={searchClick}>Search</button>
         </div>
