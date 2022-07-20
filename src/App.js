@@ -10,7 +10,7 @@ import Snow from './Images/Snow.jpg'
 
 
 function App() {
-  const [location, setLocation] = React.useState("London");
+  const [location, setLocation] = React.useState("");
   const [locateInfo, setLocateInfo] = React.useState({});
 
  
@@ -93,6 +93,7 @@ useEffect(() => {
             {locateInfo.cel ? <span className="text-5xl mr-4"> {locateInfo.cel?.temp}°C</span>: null}
             
             {locateInfo.cel ? <span>{locateInfo.cel?.hightemp}°C</span> : null }
+            <h1 className = "text-3xl italic"> {locateInfo.status}</h1>
             
             </div>
           
