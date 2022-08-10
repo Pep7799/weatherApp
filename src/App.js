@@ -56,7 +56,7 @@ useEffect(() => {
   let month = months[d.getMonth()];
   let year = d.getFullYear();
 
-  return `${day}, ${date}th ${month} ${year}`
+  return `${day},  ${month} ${date}, ${year}`
 
  }
 
@@ -76,7 +76,7 @@ useEffect(() => {
         : { backgroundImage: `url(${Overcast})` }
     } className = "text-black items-center justify-center h-screen bg-center bg-cover select-none">
          
-        <h1 className="text-3xl text-center ">{dateSection(new Date())}</h1>
+        <h1 className="text-3xl text-center pt-7 ">{dateSection(new Date())}</h1>
         <div className="text-center mt-32">
       
         <input autoFocus placeholder = "Enter location" className="border-2 border-black" type = "text" value={location} onKeyPress = {searchClicky} onChange = {(e)=> setLocation(e.target.value)}/>
